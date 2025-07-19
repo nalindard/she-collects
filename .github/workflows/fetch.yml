@@ -17,8 +17,8 @@ jobs:
       - name: Install deps
         run: bun install
 
-      - name: Build
-        run: bun run build
+      # - name: Build
+        # run: bun run build
 
       - name: Run Script
         run: bun run start
