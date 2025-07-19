@@ -1,0 +1,32 @@
+name: Scheduled API Fetch
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # every day at midnight UTC
+  workflow_dispatch: # allows manual trigger
+
+jobs:
+  run-fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install deps
+        run: bun install
+
+      - name: Build
+        run: bun run build
+
+      - name: Run Script
+        run: bun run start
+
+      - name: Commit Changes
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add data
+          git commit -m "chore: auto update $(date -u +"%Y-%m-%dT%H:%M:%SZ")" || echo "No changes"
+          git push
