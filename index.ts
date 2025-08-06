@@ -5,7 +5,8 @@ import { join } from "path";
 const fetchDataAndSave = async () => {
     const url = "https://jsonplaceholder.typicode.com/posts";
     const res = await fetch(url);
-    const data = await res.json();
+    const _data = await res.json();
+    const data = {now: new Date(), ...data};
 
     const now = new Date();
     const year = now.getFullYear();
