@@ -15,7 +15,7 @@ const fetchDataAndSave = async () => {
     const dirPath = join("data", `${year}`, month);
     mkdirSync(dirPath, { recursive: true });
 
-    const filePath = join(dirPath, "data.json");
+    const filePath = join(dirPath, `data-${now}.json`);
     writeFileSync(filePath, JSON.stringify(data, null, 2));
 
     consola.success(`Saved data to ${filePath}`);
