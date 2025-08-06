@@ -6,7 +6,7 @@ const fetchDataAndSave = async () => {
     const url = "https://jsonplaceholder.typicode.com/posts";
     const res = await fetch(url);
     const _data = await res.json();
-    const data = {now: new Date(), ...data};
+    const data = {now: new Date(), ..._data};
 
     const now = new Date();
     const year = now.getFullYear();
