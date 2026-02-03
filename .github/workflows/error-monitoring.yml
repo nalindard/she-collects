@@ -9,6 +9,9 @@ on:
 jobs:
   scan-errors:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
     steps:
       - uses: actions/checkout@v4
 
