@@ -1,0 +1,28 @@
+{
+  "text": "Error in production: TypeError: Cannot read property 'user' of null",
+  "attachments": [
+    {
+      "fallback": "Application Error",
+      "color": "danger",
+      "title": "Production Error - User Service",
+      "text": "TypeError: Cannot read property 'user' of null at getUserProfile (src/services/user.ts:45)",
+      "fields": [
+        {
+          "title": "Environment",
+          "value": "production",
+          "short": true
+        },
+        {
+          "title": "Service",
+          "value": "user-api",
+          "short": true
+        },
+        {
+          "title": "Timestamp",
+          "value": "2024-02-03T13:00:00Z",
+          "short": false
+        }
+      ]
+    }
+  ]
+}
