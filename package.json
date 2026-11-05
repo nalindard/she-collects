@@ -1,12 +1,31 @@
 {
-  "name": "ci-cd",
-  "module": "index.ts",
+  "name": "error-monitoring-system",
+  "version": "1.0.0",
+  "description": "Automated error monitoring and resolution system that integrates with AWS CloudWatch, Sentry, and Slack to automatically create GitHub issues and pull requests",
+  "module": "src/index.ts",
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bun --watch index.ts",
-    "start": "bun index.ts"
+    "dev": "bun --watch src/index.ts",
+    "start": "bun src/index.ts",
+    "server": "bun src/server.ts",
+    "server:dev": "bun --watch src/server.ts",
+    "test:setup": "./test-setup.sh",
+    "docker:build": "docker build -t error-monitoring-system .",
+    "docker:run": "docker run -p 3000:3000 --env-file .env error-monitoring-system"
   },
+  "keywords": [
+    "error-monitoring",
+    "automation",
+    "github",
+    "cloudwatch",
+    "sentry",
+    "slack",
+    "devops",
+    "issue-tracking"
+  ],
+  "author": "nalindard",
+  "license": "MIT",
   "devDependencies": {
     "@types/bun": "latest"
   },
@@ -14,6 +33,10 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "consola": "^3.4.2"
+    "@aws-sdk/client-cloudwatch-logs": "^3.716.0",
+    "@octokit/rest": "^21.0.2",
+    "@sentry/node": "^8.46.0",
+    "consola": "^3.4.2",
+    "dotenv": "^16.4.7"
   }
 }

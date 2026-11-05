@@ -1,0 +1,41 @@
+{
+  "action": "created",
+  "data": {
+    "issue": {
+      "id": "12345",
+      "title": "TypeError: Cannot read property 'map' of undefined",
+      "culprit": "processData()",
+      "level": "error",
+      "metadata": {
+        "value": "Cannot read property 'map' of undefined",
+        "type": "TypeError"
+      }
+    },
+    "event": {
+      "id": "abc123",
+      "timestamp": "2024-02-03T13:00:00Z",
+      "stacktrace": {
+        "frames": [
+          {
+            "filename": "src/utils/data-processor.ts",
+            "function": "processData",
+            "lineno": 67,
+            "context_line": "  return data.map(item => item.value);"
+          },
+          {
+            "filename": "src/api/handlers.ts",
+            "function": "handleRequest",
+            "lineno": 120,
+            "context_line": "  const processed = processData(rawData);"
+          },
+          {
+            "filename": "src/index.ts",
+            "function": "main",
+            "lineno": 34,
+            "context_line": "  await handleRequest(req, res);"
+          }
+        ]
+      }
+    }
+  }
+}
